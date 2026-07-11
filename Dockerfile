@@ -5,10 +5,11 @@ WORKDIR /app
 RUN apt update -y && apt upgrade -y
 
 COPY package*.json ./
-COPY . .
 
 RUN npm install
-RUN ls -la
+
+COPY . .
+
 RUN npm run build
 
 EXPOSE 4173
